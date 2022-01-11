@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "lottie-web": "^5.8.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
@@ -43,16 +44,15 @@
       "parser": "babel-eslint"
     },
     "rules": {
-        "prettier/prettier": [
-          "warn",
-          {
-            "trailingComma" : "none",
-            "singleQuote": true,
-            "endOfLine": "auto",
-            "semi": true 
-          }
-        ]
-      
+      "prettier/prettier": [
+        "warn",
+        {
+          "trailingComma": "none",
+          "singleQuote": true,
+          "endOfLine": "auto",
+          "semi": true
+        }
+      ]
     }
   },
   "browserslist": [
