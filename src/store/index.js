@@ -1,8 +1,9 @@
 import { createStore } from 'vuex';
+import emailjs from '@emailjs/browser';
 
 export default createStore({
   state: {
-    showPreloader: true, // must be true
+    showPreloader: false, // must be true
     cartItems: {
       // OFFER1: false,
       // OFFER2: false,
@@ -35,6 +36,41 @@ export default createStore({
         !state.cartItems[payload.item].state;
     }
   },
-  actions: {},
+  actions: {
+    sendMail({ state, getters, commit }, payload) {
+      commit('changePreloaderState', true);
+      let finalArray = [];
+      Object.keys(state.cartItems).forEach((el) => {
+        const element = state.cartItems[el];
+        if (element.state) {
+          finalArray.push([element.itemName, element.price]);
+        }
+      });
+      const sum = getters.getSum;
+      const offerObj = {
+        companyName: payload.companyName,
+        companyEmail: payload.companyEmail,
+        offerObj: finalArray.toString(),
+        totalSum: sum
+      };
+      emailjs
+        .send(
+          process.env.VUE_APP_SERVICE_ID,
+          process.env.VUE_APP_TEMPLATE_ID,
+          offerObj,
+          process.env.VUE_APP_USER_ID
+        )
+        .then(
+          (result) => {
+            console.log('SUCCESS!', result.text);
+            commit('changePreloaderState', false);
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+            // commit('changePreloaderState', true);
+          }
+        );
+    }
+  },
   modules: {}
 });

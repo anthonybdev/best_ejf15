@@ -16,6 +16,7 @@ export default {
   name: 'Test',
   computed: {
     cartItems() {
+      console.log(this.$store.state.cartItems);
       return this.$store.state.cartItems;
     },
     sum() {

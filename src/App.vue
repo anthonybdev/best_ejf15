@@ -21,6 +21,7 @@ export default {
   computed: mapState({ showPreloader: (state) => state.showPreloader }),
   mounted() {
     console.log(this.showPreloader);
+    console.log(process.env.VUE_APP_SERVICE_ID);
   }
 };
 </script>
@@ -100,5 +101,8 @@ h4 {
   color: transparent;
   -webkit-text-stroke-width: 0.027em;
   -webkit-text-stroke-color: #ffffff;
+}
+html {
+  font-size: 1vw;
 }
 </style>
