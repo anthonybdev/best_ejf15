@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form ref="form" class="offerForm" @submit.prevent="onSumbit">
+    <form class="offerForm" @submit.prevent="onSumbit">
       <div class="inputWrapper">
         <input
           v-model="obj.companyName"
@@ -32,9 +32,6 @@ export default {
   }),
   methods: {
     onSumbit() {
-      console.log(this.$refs.form);
-      this.obj.el = this.$refs.form;
-      console.log(this.obj);
       this.$store.dispatch('sendMail', this.obj);
     }
   }
@@ -67,12 +64,12 @@ input {
   line-height: 22px;
   color: #b0b0b0;
 }
-@-moz-document url-prefix() {
-  input {
-    font-size: 9px; /*reduce font size to match what is seen in chrome*/
-    line-height: 11px;
-  }
-}
+// @-moz-document url-prefix() {
+//   input {
+//     font-size: 9px; /*reduce font size to match what is seen in chrome*/
+//     line-height: 11px;
+//   }
+// }
 input:first-child {
   margin-bottom: 1.8rem;
 }

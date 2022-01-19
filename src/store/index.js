@@ -3,7 +3,8 @@ import emailjs from '@emailjs/browser';
 
 export default createStore({
   state: {
-    showPreloader: false, // must be true
+    showPreloader: true, // must be true
+    isFormSended: false,
     cartItems: {
       // OFFER1: false,
       // OFFER2: false,
@@ -24,6 +25,9 @@ export default createStore({
     changePreloaderState(state, payload) {
       state.showPreloader = payload;
     },
+    changeFormSended(state, payload) {
+      state.isFormSended = payload;
+    },
     changeCartItem(state, payload) {
       state.cartItems[payload.item] = {
         itemName: payload.item,
@@ -39,6 +43,7 @@ export default createStore({
   actions: {
     sendMail({ state, getters, commit }, payload) {
       commit('changePreloaderState', true);
+      commit('changeFormSended', true);
       let finalArray = [];
       Object.keys(state.cartItems).forEach((el) => {
         const element = state.cartItems[el];
@@ -53,6 +58,9 @@ export default createStore({
         offerObj: finalArray.toString(),
         totalSum: sum
       };
+      // setTimeout(() => {
+      //   commit('changeFormSended', false);
+      // }, 3500);
       emailjs
         .send(
           process.env.VUE_APP_SERVICE_ID,
@@ -63,7 +71,7 @@ export default createStore({
         .then(
           (result) => {
             console.log('SUCCESS!', result.text);
-            commit('changePreloaderState', false);
+            commit('changeFormSended', false);
           },
           (error) => {
             console.log('FAILED...', error.text);

@@ -13,7 +13,8 @@ export default {
   data: () => ({
     // test: true
   }),
-  computed: mapState({ showPreloader: (state) => state.showPreloader }),
+  // computed: mapState({ showPreloader: (state) => state.showPreloader }),
+  computed: mapState(['showPreloader', 'isFormSended']),
   mounted() {
     const animation = lottie.loadAnimation({
       container: document.querySelector('#preloader'), // the dom element
@@ -27,8 +28,12 @@ export default {
       //   this.$store.commit('changePreloaderState', false);
       //   animation.destroy();
       // }
-      this.$store.commit('changePreloaderState', false);
-      animation.destroy();
+      // this.$store.commit('changePreloaderState', false);
+      // animation.destroy();
+      if (!this.isFormSended) {
+        this.$store.commit('changePreloaderState', false);
+        animation.destroy();
+      }
     });
   }
 };
