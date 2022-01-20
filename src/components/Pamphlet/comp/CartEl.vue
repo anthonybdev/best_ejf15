@@ -1,7 +1,7 @@
 <template>
   <div class="elWrap">
     <span class="elName">{{ el.itemName }}</span>
-    <span class="elPrice">{{ el.price }}</span>
+    <span class="elPrice">{{ $filters.numberWithSpace(el.price) }}</span>
   </div>
 </template>
 
@@ -35,5 +35,20 @@ export default {
 .elPrice {
   font-family: 'MontserratRegular';
   font-size: 1.25rem;
+}
+@media screen and (max-width: 768px) {
+  .elWrap {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(227, 110, 216, 0.2);
+    align-items: flex-end;
+    padding-right: 8.75rem;
+  }
+  .elName {
+    font-size: 6.25rem;
+  }
+  .elPrice {
+    font-size: 3.75rem;
+    line-height: 4.68rem;
+  }
 }
 </style>

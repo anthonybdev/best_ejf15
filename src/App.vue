@@ -34,9 +34,14 @@ export default {
   font-family: 'BebasNeueBold';
   src: url('./assets/fonts/BebasNeue_Bold.otf');
 }
+// @font-face {
+//   font-family: 'MontserratRegular';
+//   src: url('./assets/fonts/Montserrat-Regular.otf');
+// }
 @font-face {
   font-family: 'MontserratRegular';
-  src: url('./assets/fonts/Montserrat-Regular.otf');
+  // src: url('./assets/fonts/Montserrat-Regular.otf');
+  src: url('./assets/fonts/Montserrat-Light.otf');
 }
 @font-face {
   font-family: 'MontserratThin';
@@ -95,13 +100,7 @@ h4 {
 .container-padding {
   padding: 0 11.45em;
 }
-.heading {
-  font-size: 5em;
-  letter-spacing: 0.2em;
-  color: transparent;
-  -webkit-text-stroke-width: 0.027em;
-  -webkit-text-stroke-color: #ffffff;
-}
+
 html {
   font-size: 1vw;
 }

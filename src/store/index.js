@@ -51,13 +51,15 @@ export default createStore({
           finalArray.push([element.itemName, element.price]);
         }
       });
-      const sum = getters.getSum;
+      let sum = getters.getSum;
+      if (sum === 23000) sum = 21000;
       const offerObj = {
         companyName: payload.companyName,
         companyEmail: payload.companyEmail,
         offerObj: finalArray.toString(),
         totalSum: sum
       };
+      console.log(offerObj);
       // setTimeout(() => {
       //   commit('changeFormSended', false);
       // }, 3500);

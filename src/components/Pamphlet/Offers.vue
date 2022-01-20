@@ -19,6 +19,10 @@
         />
       </div>
     </div>
+    <span class="elDescDesk"
+      >Партнерам ІЯК'14 та ІЯК'13: -5%<br />Базовий пакет + Усі пакети:
+      -2000UAH</span
+    >
     <span class="additionalText">КОРЗИНА</span>
     <div class="cartContainer">
       <div class="cartWrapper">
@@ -30,7 +34,19 @@
         >
           <CartEl :el="el" />
         </div>
-        <span class="elName">{{ sum }}</span>
+        <span v-show="!fullSale" class="elName">{{
+          $filters.numberWithSpace(sum)
+        }}</span>
+        <div v-show="fullSale" class="SumWrapper">
+          <span class="saleSum">{{ $filters.numberWithSpace(sum) }}</span>
+          <span class="elName">{{
+            ` ${$filters.numberWithSpace(21000)}`
+          }}</span>
+        </div>
+        <span class="elDescMob"
+          >Партнерам ІЯК'14 та ІЯК'13: -5%<br />Базовий пакет + Усі пакети:
+          -2000UAH</span
+        >
       </div>
       <div class="formWrapper">
         <OfferForm />
@@ -58,31 +74,32 @@ export default {
   },
   data: () => ({
     mainObj: {
-      offerName: 'MAIN OFFER 1',
-      offerPrice: 6000,
+      offerName: 'BASIC',
+      offerPrice: 8000,
       offerText:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        'Стенд\nЛоготип на сайті проєкту\nТранслювання відеоролика на місці події\nStories-дайджест про компанію\nПоширення вакансій компанії'
     },
     optionsObj: [
       {
-        offerName: 'OFFER 1',
+        offerName: 'SAPPHIRE',
         offerPrice: 4000,
         offerText:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+          'Участь у другому дні проєкту\nПанельні дискусії\nInstagram Guide'
       },
       {
-        offerName: 'OFFER 2',
-        offerPrice: 3000,
+        offerName: 'RUBY',
+        offerPrice: 5000,
         offerText:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+          'Workshop від компанії\nSpeed dating\nРозсилка можливостей та вакансій від компаній'
       },
       {
-        offerName: 'OFFER 3',
-        offerPrice: 2000,
+        offerName: 'DIAMOND',
+        offerPrice: 6000,
         offerText:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+          'Пост-дайджест компаній в\nTelegram\nДень інтерактивних stories в Instagram\nДоступ до бази CV учасників'
       }
-    ]
+    ],
+    fullSale: false
   }),
   computed: {
     cartItems() {
@@ -90,6 +107,15 @@ export default {
     },
     sum() {
       return this.$store.getters.getSum;
+    }
+  },
+  watch: {
+    sum() {
+      if (this.sum === 23000) {
+        this.fullSale = true;
+      } else {
+        this.fullSale = false;
+      }
     }
   }
 };
@@ -107,14 +133,15 @@ export default {
   margin-top: 4em;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8.33rem;
+  // margin-bottom: 8.33rem;
 }
 .mainOfferWrapper {
   margin-top: 5em;
   margin-bottom: 4em;
   display: flex;
   justify-content: center;
-  pointer-events: none; // test
+  // pointer-events: none; // test
+  cursor: pointer;
 }
 .additionalText {
   font-size: 3.33em;
@@ -143,7 +170,122 @@ export default {
   display: block;
   padding-right: 2rem;
 }
+.saleSum {
+  font-family: 'MontserratRegular';
+  text-decoration-line: line-through;
+  color: #ffffff;
+  letter-spacing: 0.1rem;
+  background: linear-gradient(
+    99.09deg,
+    rgba(204, 0, 255, 0.3) 0%,
+    rgba(204, 0, 255, 0.1) 100%
+  );
+  line-height: 1.52rem;
+  font-size: 1.25rem;
+  padding: 0 0.5rem;
+  display: inline-block;
+  margin-left: -1.2rem;
+}
+.SumWrapper {
+  margin-left: auto;
+}
 .formWrapper {
   flex: 2;
 }
+.elDescMob {
+  display: none;
+}
+.elDescDesk {
+  display: block;
+  margin-left: auto;
+  text-align: right;
+  font-family: 'MontserratRegular';
+  line-height: 1.041rem;
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 3.47rem;
+  margin-bottom: 2.08rem;
+}
+@media screen and (max-width: 768px) {
+  .mainOfferWrapper {
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .additionalText {
+    font-size: 6.25rem;
+    text-align: center;
+    margin-top: 15.625rem;
+    color: #ffffff;
+    letter-spacing: 0.2rem;
+  }
+  .reviewsWrapper {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  .elDiv {
+    margin-top: 7.5rem;
+    margin-bottom: 0;
+  }
+  .cartContainer {
+    flex-direction: column;
+  }
+  .cartContainer {
+    padding: 0;
+  }
+  .elName {
+    font-size: 6.25rem;
+    margin-left: auto;
+    padding-right: 8.75rem;
+    margin-top: 7.5rem;
+    letter-spacing: 0.5rem;
+  }
+  .elDescMob {
+    display: block !important;
+    margin-left: auto;
+    text-align: right;
+    font-family: 'MontserratRegular';
+    line-height: 3.75rem;
+    font-size: 3.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 7.5rem;
+    // margin-right: -3.47rem;
+  }
+  .elDescDesk {
+    display: none;
+  }
+  .formWrapper {
+    margin-top: 15.625rem;
+  }
+  .cartWrapper {
+    margin-right: 0;
+  }
+  .SumWrapper > .elName {
+    margin-top: 0;
+  }
+  .saleSum {
+    font-family: 'MontserratRegular';
+    text-decoration-line: line-through;
+    color: #ffffff;
+    letter-spacing: 0.5rem;
+    background: linear-gradient(
+      99.09deg,
+      rgba(204, 0, 255, 0.3) 0%,
+      rgba(204, 0, 255, 0.1) 100%
+    );
+    line-height: 4.3rem;
+    font-size: 4rem;
+    padding: 0 1.8rem;
+    display: inline-block;
+    margin-left: -4.5rem;
+    margin-top: 2em;
+  }
+}
+// @media screen and (min-width: 769px) {
+//   .elDesc {
+//     display: none;
+//   }
+// }
 </style>

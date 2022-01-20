@@ -82,11 +82,13 @@ input:focus {
   // border: specify yours;
 }
 .sumbitButton {
-  background: linear-gradient(112.08deg, #1f0029 0%, rgba(0, 6, 27, 0) 100%);
-  border-radius: 1rem;
+  background: linear-gradient(112.08deg, #4f20b4 0%, #1f0029 100%),
+    linear-gradient(112.08deg, #6443c1 0%, #310432 100%);
+  border-radius: 15px;
   padding: 1.04rem 4.09rem;
   color: #ffffff;
   font-size: 2.5rem;
+  letter-spacing: 0.1rem;
   font-family: 'BebasNeueCyrillic';
   outline: none;
   border: none;
@@ -97,5 +99,25 @@ input:focus {
 .btnWrapper {
   text-align: center;
   margin-top: 3.125rem;
+}
+@media screen and (max-width: 768px) {
+  input:first-child {
+    margin-bottom: 9.68rem;
+  }
+  input {
+    padding: 2.18rem 0;
+    padding-left: 5rem;
+    font-family: 'MontserratRegular';
+    font-size: 3.75rem;
+    line-height: 4.68rem;
+  }
+  .sumbitButton {
+    padding: 2.8rem 11.56rem;
+    font-size: 6.25rem;
+    letter-spacing: 0.5rem;
+  }
+  .btnWrapper {
+    margin-top: 7.5rem;
+  }
 }
 </style>

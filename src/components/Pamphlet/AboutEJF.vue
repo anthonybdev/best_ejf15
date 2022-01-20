@@ -10,12 +10,12 @@
       </div>
       <div class="infoText-wrapper">
         <span class="infoText"
-          >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
-          facilisis magna etiam tempor orci eu lobortis elementum. Suscipit
-          adipiscing bibendum est ultricies integer. Varius sit amet mattis
-          vulputate enim nulla aliquet porttitor.Velit egestas dui id
-          ornare.</span
+          >Це проєкт з 14-річним досвідом, який протягом двох днів допомагає
+          студентам познайомитися з провідними компаніями України, знайти
+          реалізацію своїх навичок та почати свій кар’єрний шлях, а компаніям —
+          розповісти про ринок праці, актуальні вакансії, майбутні курси, знайти
+          хороших працівників та стажерів серед студентів різних
+          спеціальностей.</span
         >
       </div>
     </div>
@@ -84,5 +84,39 @@ export default {
 }
 .infoText {
   font-size: 1.25em;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding-top: 0;
+  }
+  .textWrapper {
+    text-align: center;
+    padding-bottom: 7.8125rem;
+    margin-right: 0;
+  }
+  .textTop {
+    font-size: 7.5rem;
+  }
+  .textBottom {
+    font-size: 11.25rem;
+    margin-top: -0.3rem;
+  }
+  .textGrad {
+    width: 13.125rem;
+    margin-bottom: 3.75rem;
+  }
+  .textGrad > span {
+    font-size: 5.625rem;
+  }
+  .infoText-wrapper {
+    line-height: 4.68rem;
+    font-weight: 400;
+    width: auto;
+  }
+  .infoText {
+    font-size: 3.75rem;
+  }
 }
 </style>

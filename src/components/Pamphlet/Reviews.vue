@@ -2,7 +2,7 @@
   <div class="container container-padding">
     <h3 class="heading">ВІДГУКИ&nbsp;ПАРТНЕРІВ</h3>
     <div class="reviewsWrapper">
-      <div v-for="card in propObj" :key="card.id">
+      <div v-for="card in propObj" :key="card.id" class="cardItem">
         <ReviewCard :comp-name="card.compName" :comp-text="card.compText" />
       </div>
     </div>
@@ -52,5 +52,14 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-bottom: 22.4em;
+}
+@media screen and (max-width: 768px) {
+  .reviewsWrapper {
+    flex-direction: column;
+    margin: 0;
+  }
+  .cardItem {
+    margin-top: 7.5rem;
+  }
 }
 </style>
