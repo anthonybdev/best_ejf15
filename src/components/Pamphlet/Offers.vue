@@ -53,14 +53,14 @@
       </div>
     </div>
 
-    <Test />
+    <!-- <Test /> -->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import OfferCard from '@/components/Pamphlet/comp/OfferCard';
-import Test from '@/components/Pamphlet/comp/Test';
+// import Test from '@/components/Pamphlet/comp/Test';
 import CartEl from '@/components/Pamphlet/comp/CartEl';
 import OfferForm from '@/components/Pamphlet/comp/OfferForm';
 
@@ -68,7 +68,7 @@ export default {
   name: 'Offers',
   components: {
     OfferCard,
-    Test,
+    // Test,
     CartEl,
     OfferForm
   },

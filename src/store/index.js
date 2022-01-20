@@ -59,10 +59,6 @@ export default createStore({
         offerObj: finalArray.toString(),
         totalSum: sum
       };
-      console.log(offerObj);
-      // setTimeout(() => {
-      //   commit('changeFormSended', false);
-      // }, 3500);
       emailjs
         .send(
           process.env.VUE_APP_SERVICE_ID,

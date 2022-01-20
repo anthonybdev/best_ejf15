@@ -109,6 +109,7 @@ export default {
   }
   .textGrad > span {
     font-size: 5.625rem;
+    line-height: 6.5rem;
   }
   .infoText-wrapper {
     line-height: 4.68rem;

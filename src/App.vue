@@ -18,11 +18,7 @@ export default {
   components: {
     Preloader
   },
-  computed: mapState({ showPreloader: (state) => state.showPreloader }),
-  mounted() {
-    console.log(this.showPreloader);
-    console.log(process.env.VUE_APP_SERVICE_ID);
-  }
+  computed: mapState({ showPreloader: (state) => state.showPreloader })
 };
 </script>
 <style lang="scss">
@@ -48,8 +44,9 @@ export default {
   src: url('./assets/fonts/Montserrat-Thin.otf');
 }
 @font-face {
-  font-family: 'MontserratLight';
-  src: url('./assets/fonts/Montserrat-Light.otf');
+  font-family: 'MontserratBold';
+  // src: url('./assets/fonts/Montserrat-Light.otf');
+  src: url('./assets/fonts/Montserrat-Regular.otf');
 }
 * {
   margin: 0px;

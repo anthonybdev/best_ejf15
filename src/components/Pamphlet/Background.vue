@@ -7,6 +7,8 @@
     <Descr />
     <Reviews />
     <Offers />
+    <Organisator />
+    <Contacts />
   </div>
 </template>
 
@@ -19,6 +21,8 @@ import Offers from '@/components/Pamphlet/Offers';
 import Invest from '@/components/Pamphlet/Invest';
 import Opportunities from '@/components/Pamphlet/Opportunities';
 import Descr from '@/components/Pamphlet/Descr';
+import Organisator from '@/components/Pamphlet/Organisator';
+import Contacts from '@/components/Pamphlet/Contacts';
 
 export default {
   name: 'Background',
@@ -29,7 +33,9 @@ export default {
     Offers,
     Invest,
     Opportunities,
-    Descr
+    Descr,
+    Organisator,
+    Contacts
   }
 };
 </script>

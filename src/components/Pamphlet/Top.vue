@@ -23,7 +23,7 @@ export default {
   margin-top: -3.53em;
 }
 .textLogo {
-  font-size: 48em;
+  font-size: 48rem;
   padding-left: 0.1em;
   letter-spacing: 0.1em;
   text-align: center;
@@ -41,6 +41,18 @@ export default {
 @media screen and (max-width: 720px) {
   .imgLogo {
     top: 8.2em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 0;
+    padding-top: 3.1rem;
+  }
+  .textLogo {
+    line-height: 48rem;
+  }
+  .imgLogo {
+    top: 6.8rem;
   }
 }
 </style>

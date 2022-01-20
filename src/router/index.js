@@ -5,7 +5,10 @@ const routes = [
   {
     path: '/',
     name: 'Pamphlet',
-    component: Pamphlet
+    component: Pamphlet,
+    meta: {
+      title: "EJF'15 Partnership"
+    }
   },
   {
     path: '/about',
@@ -23,4 +26,14 @@ const router = createRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  const nearestWithTitle = to.matched
+    .slice()
+    .reverse()
+    .find((r) => r.meta && r.meta.title);
+
+  if (nearestWithTitle) document.title = nearestWithTitle.meta.title;
+
+  next();
+});
 export default router;

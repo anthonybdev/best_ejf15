@@ -28,7 +28,12 @@
 // @ is an alias to /src
 
 export default {
-  name: 'Invest'
+  name: 'Invest',
+  mounted() {
+    window.onload = () => {
+      this.$store.commit('changeFormSended', false);
+    };
+  }
 };
 </script>
 

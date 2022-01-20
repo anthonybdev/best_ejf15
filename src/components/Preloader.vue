@@ -10,10 +10,6 @@ import animationData from '../assets/data.json';
 import { mapState } from 'vuex';
 
 export default {
-  data: () => ({
-    // test: true
-  }),
-  // computed: mapState({ showPreloader: (state) => state.showPreloader }),
   computed: mapState(['showPreloader', 'isFormSended']),
   mounted() {
     const animation = lottie.loadAnimation({
@@ -46,16 +42,7 @@ export default {
 //   justify-content: center;
 //   z-index: 9999;
 // }
-.preloader-wrapper {
-  position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-  z-index: 999;
-  height: 100vh;
-  // width: 100%;
-  background-color: white;
-}
+
 // @media screen and (max-width: 520px) {
 //   .preloader-wrapper {
 //     top: 75%;
@@ -72,6 +59,21 @@ export default {
 //   display: flex;
 //   justify-content: center;
 // }
+
+
+
+
+.preloader-wrapper {
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  z-index: 999;
+  height: 100vh;
+  overflow: hidden;
+  // width: 100%;
+  background-color: white;
+}
 
 #preloader > svg {
   height: 100vh !important;
