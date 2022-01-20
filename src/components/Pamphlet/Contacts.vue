@@ -1,5 +1,5 @@
 <template>
-  <div class="container container-padding">
+  <div class="container container-padding containerMob">
     <h3 class="heading">КОНТАКТИ</h3>
     <div class="contactsWrapper">
       <div v-for="item in obj" :key="item.key">
@@ -51,24 +51,21 @@ export default {
   font-size: 1vw;
   display: flex;
   margin-top: 20rem;
-  // padding-bottom: 24rem;
   flex-direction: column;
-
-  .contactsWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-bottom: 24rem;
+}
+.contactsWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 24rem;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 150px;
   }
-  @media screen and (max-width: 768px) {
-    .container {
-      margin-top: 140px;
-    }
-    .contactsWrapper {
-      flex-direction: column;
-      justify-content: auto;
-      padding-bottom: 35rem;
-    }
+  .contactsWrapper {
+    flex-direction: column;
+    padding-bottom: 35rem;
   }
 }
 </style>

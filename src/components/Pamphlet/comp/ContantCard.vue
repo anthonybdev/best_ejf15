@@ -109,6 +109,7 @@ a {
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;
+    margin-top: 46.875rem !important;
     height: 43.75rem;
     border-radius: 15px;
   }
