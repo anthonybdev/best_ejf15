@@ -52,14 +52,13 @@ export default {
   }
 }
 .compText {
-  font-family: 'MontserratThin';
+  font-family: 'MontserratRegular';
   font-weight: 300;
   margin-top: 0.76em;
   width: 17.8em;
   margin-left: 2.9em;
   p {
     font-size: 0.83em;
-    text-align: justify;
   }
 }
 @media screen and (max-width: 768px) {
@@ -82,7 +81,6 @@ export default {
     p {
       font-size: 3.75rem;
       line-height: 4.68rem;
-      text-align: justify;
     }
   }
 }

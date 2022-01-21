@@ -44,6 +44,10 @@ export default {
 .backgr {
   background-color: #00061b;
 }
+// .container-padding.active {
+//   filter: blur(5px);
+//   -webkit-filter: blur(5px);
+// }
 .heading {
   font-size: 5em;
   letter-spacing: 0.2em;

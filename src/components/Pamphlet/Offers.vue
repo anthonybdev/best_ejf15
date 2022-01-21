@@ -20,8 +20,8 @@
       </div>
     </div>
     <span class="elDescDesk"
-      >Партнерам ІЯК'14 та ІЯК'13: -5%<br />Базовий пакет + Усі пакети:
-      -2000UAH</span
+      >Партнерам ІЯК'14 та ІЯК'13: -5%<br />Базовий пакет + Усі пакети: -2
+      000UAH</span
     >
     <span class="additionalText">КОРЗИНА</span>
     <div class="cartContainer">
@@ -44,8 +44,8 @@
           }}</span>
         </div>
         <span class="elDescMob"
-          >Партнерам ІЯК'14 та ІЯК'13: -5%<br />Базовий пакет + Усі пакети:
-          -2000UAH</span
+          >Партнерам ІЯК'14 та ІЯК'13: -5%<br />Базовий пакет + Усі пакети: -2
+          000UAH</span
         >
       </div>
       <div class="formWrapper">

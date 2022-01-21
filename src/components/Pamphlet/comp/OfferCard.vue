@@ -18,12 +18,26 @@
         <h4>{{ offerName }}</h4>
       </div>
       <div class="offerText">
-        <p>
+        <p @click="changePopupState">
           {{ offerText }}
         </p>
       </div>
     </div>
   </div>
+  <transition name="popup-fade">
+    <div v-if="showPopup" class="offerPopup">
+      <div class="popup-blurr"></div>
+      <div class="popupWrapper">
+        <div>This is popup</div>
+        <span class="closeButton"
+          ><img
+            src="@/assets/icons/closeIcon.svg"
+            alt="closeIcon"
+            @click="changePopupState"
+        /></span>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -56,7 +70,8 @@ export default {
     }
   },
   data: () => ({
-    checkedLocal: false
+    checkedLocal: false,
+    showPopup: false
   }),
   // computed: mapState({
   //   checked: function (state) {
@@ -98,6 +113,14 @@ export default {
       this.$store.commit('changeCartItemByCont', {
         item: this.offerName.replace(/\s/g, '')
       });
+    },
+    changePopupState() {
+      // document.querySelector('body').classList.toggle('active');
+      // document.querySelectorAll('.container-padding').forEach((el) => {
+      //   el.classList.toggle('active');
+      // });
+      // console.log(document.querySelectorAll('.container-padding'));
+      this.showPopup = !this.showPopup;
     }
   }
 };
@@ -133,14 +156,13 @@ export default {
   }
 }
 .offerText {
-  font-family: 'MontserratThin';
+  font-family: 'MontserratRegular';
   font-weight: 300;
   margin-top: 0.76em;
   width: 17.8em;
   margin-left: 2.9em;
   p {
     font-size: 0.83em;
-    text-align: justify;
     line-height: 1.38rem;
     white-space: pre-line;
   }
@@ -168,6 +190,93 @@ export default {
   top: 0.7em;
   cursor: pointer;
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+.popup-fade-enter-active {
+  animation: fadeIn 0.5s;
+}
+.popup-fade-leave-active {
+  animation: fadeOut 0.5s;
+}
+.offerPopup {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // filter: blur(5px);
+  // -webkit-filter: blur(5px);
+}
+// .popup-blurr {
+//   position: relative;
+//   top: 0;
+//   left: 0;
+//   height: 100vh;
+//   width: 100vw;
+//   background-color: rgba(255, 255, 255, 0.041);
+//   // filter: blur(5px);
+//   // -webkit-filter: blur(5px);
+// }
+.popupWrapper {
+  position: absolute;
+  width: 53.75rem;
+  height: 37.9rem;
+  background-color: #ffffff;
+  z-index: 100;
+  // filter: blur(0px);
+  // -webkit-filter: blur(0px);
+}
+// .mfp-zoom-in {
+//   /* start state */
+//   0% {
+//   }
+
+//   &.mfp-bg {
+//     opacity: 0;
+//     transition: all 0.3s ease-out;
+//   }
+
+//   /* animate in */
+//   &.mfp-ready {
+//     &.mfp-bg {
+//       opacity: 0.8;
+//     }
+//   }
+
+//   /* animate out */
+//   &.mfp-removing {
+//     .mfp-with-anim {
+//     }
+//     &.mfp-bg {
+//       opacity: 0;
+//     }
+//   }
+// }
+
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;
@@ -194,7 +303,6 @@ export default {
     p {
       font-size: 3.75rem;
       line-height: 5.625rem;
-      text-align: justify;
     }
   }
   .priceGrad {

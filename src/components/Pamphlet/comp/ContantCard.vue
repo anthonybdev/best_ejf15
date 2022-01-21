@@ -67,7 +67,7 @@ export default {
   }
 }
 .compText {
-  font-family: 'MontserratThin';
+  font-family: 'MontserratRegular';
   font-weight: 300;
   margin-top: 0.1rem;
   margin-left: 1.25rem;
@@ -81,7 +81,7 @@ export default {
   margin-bottom: 0.9rem;
 }
 a {
-  font-family: 'MontserratThin';
+  font-family: 'MontserratRegular';
   color: #ffffff;
   font-size: 0.83rem;
   line-height: 1.041rem;
