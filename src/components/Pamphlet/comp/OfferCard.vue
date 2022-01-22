@@ -18,13 +18,13 @@
         <h4>{{ offerName }}</h4>
       </div>
       <div class="offerText">
-        <p @click="changePopupState">
+        <p @click="changePopupState('showPopup1')">
           {{ offerText }}
         </p>
       </div>
     </div>
   </div>
-  <transition name="popup-fade">
+  <!-- <transition name="popup-fade">
     <div v-if="showPopup" class="offerPopup">
       <div class="popup-blurr"></div>
       <div class="popupWrapper">
@@ -33,11 +33,11 @@
           ><img
             src="@/assets/icons/closeIcon.svg"
             alt="closeIcon"
-            @click="changePopupState"
+            @click="changePopupState('showPopup1')"
         /></span>
       </div>
     </div>
-  </transition>
+  </transition> -->
 </template>
 
 <script>
@@ -114,13 +114,16 @@ export default {
         item: this.offerName.replace(/\s/g, '')
       });
     },
-    changePopupState() {
+    changePopupState(payload) {
+      console.log('hey');
       // document.querySelector('body').classList.toggle('active');
       // document.querySelectorAll('.container-padding').forEach((el) => {
       //   el.classList.toggle('active');
       // });
       // console.log(document.querySelectorAll('.container-padding'));
-      this.showPopup = !this.showPopup;
+      document.querySelector('.backgr').classList.toggle('active');
+      this.$store.commit('changePopupState', payload);
+      // this.showPopup = !this.showPopup;
     }
   }
 };
@@ -190,66 +193,67 @@ export default {
   top: 0.7em;
   cursor: pointer;
 }
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-}
-.popup-fade-enter-active {
-  animation: fadeIn 0.5s;
-}
-.popup-fade-leave-active {
-  animation: fadeOut 0.5s;
-}
-.offerPopup {
-  box-sizing: border-box;
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // filter: blur(5px);
-  // -webkit-filter: blur(5px);
-}
+// @keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//     transition: all 0.2s ease-in-out;
+//     transform: scale(0.8);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+// }
+// @keyframes fadeOut {
+//   0% {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+//   100% {
+//     transform: scale(0.8);
+//     opacity: 0;
+//   }
+// }
+// .popup-fade-enter-active {
+//   animation: fadeIn 0.5s;
+// }
+// .popup-fade-leave-active {
+//   animation: fadeOut 0.5s;
+// }
+// .offerPopup {
+//   box-sizing: border-box;
+//   position: fixed;
+//   z-index: 2;
+//   top: 0;
+//   left: 0;
+//   height: 100vh;
+//   width: 100vw;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   // filter: blur(5px);
+//   // -webkit-filter: blur(5px);
+// }
 // .popup-blurr {
 //   position: relative;
 //   top: 0;
 //   left: 0;
 //   height: 100vh;
 //   width: 100vw;
-//   background-color: rgba(255, 255, 255, 0.041);
-//   // filter: blur(5px);
-//   // -webkit-filter: blur(5px);
+//   // background-color: rgb(255, 255, 255);
+  
+//   filter: blur(10px);
+//   -webkit-filter: blur(10px);
 // }
-.popupWrapper {
-  position: absolute;
-  width: 53.75rem;
-  height: 37.9rem;
-  background-color: #ffffff;
-  z-index: 100;
-  // filter: blur(0px);
-  // -webkit-filter: blur(0px);
-}
+// .popupWrapper {
+//   position: absolute;
+//   width: 53.75rem;
+//   height: 37.9rem;
+//   background-color: #ffffff;
+//   z-index: 100;
+//   // filter: blur(0px);
+//   // -webkit-filter: blur(0px);
+// }
 // .mfp-zoom-in {
 //   /* start state */
 //   0% {

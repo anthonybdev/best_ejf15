@@ -10,6 +10,10 @@ export default createStore({
       // OFFER2: false,
       // OFFERNAME3: false
     },
+    showPopup1: false,
+    showPopup2: false,
+    showPopup3: false,
+    showPopup4: false,
     sum: 0
   },
   getters: {
@@ -24,6 +28,10 @@ export default createStore({
   mutations: {
     changePreloaderState(state, payload) {
       state.showPreloader = payload;
+    },
+    changePopupState(state, payload) {
+      console.log(payload);
+      state[payload] = !state[payload];
     },
     changeFormSended(state, payload) {
       state.isFormSended = payload;

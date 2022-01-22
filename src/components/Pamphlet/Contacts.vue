@@ -27,7 +27,7 @@ export default {
         img: 'blankImg'
       },
       {
-        name: 'КОПАЧАК ЮЛІЯ',
+        name: 'копчак ЮЛІЯ',
         position: 'Відповідальна за корпоративні зв’язки',
         tel: '+380673140145',
         mail: 'yulya.kopchak@gmail.com',
