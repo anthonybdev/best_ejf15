@@ -21,7 +21,7 @@ export default {
     obj: [
       {
         name: 'ГОРБАЧУК ВІКТОРІЯ',
-        position: 'Головний організатор',
+        position: 'Головна організаторка',
         tel: '+380977632333',
         mail: 'vika.horbachuk@gmail.com',
         img: 'blankImg'

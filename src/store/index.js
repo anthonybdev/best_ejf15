@@ -14,7 +14,8 @@ export default createStore({
     showPopup2: false,
     showPopup3: false,
     showPopup4: false,
-    sum: 0
+    sum: 0,
+    additionalArea: false
   },
   getters: {
     getSum(state) {
@@ -22,6 +23,9 @@ export default createStore({
       Object.keys(state.cartItems).forEach((item) => {
         if (state.cartItems[item].state) temp += state.cartItems[item].price;
       });
+      if (state.additionalArea) {
+        return (temp += 500);
+      }
       return temp;
     }
   },
@@ -46,6 +50,9 @@ export default createStore({
     changeCartItemByCont(state, payload) {
       state.cartItems[payload.item].state =
         !state.cartItems[payload.item].state;
+    },
+    changeAdditionalArea(state) {
+      state.additionalArea = !state.additionalArea;
     }
   },
   actions: {
@@ -61,6 +68,7 @@ export default createStore({
       });
       let sum = getters.getSum;
       if (sum === 23000) sum = 21000;
+      if (sum === 23500) sum = 21500;
       const offerObj = {
         companyName: payload.companyName,
         companyEmail: payload.companyEmail,

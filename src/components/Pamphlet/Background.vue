@@ -11,17 +11,16 @@
     <Contacts />
   </div>
   <transition name="popup-fade">
-    <div v-if="showPopup1" class="offerPopup">
-      <div class="popupWrapper">
-        <div>This is popup</div>
-        <span class="closeButton"
-          ><img
-            src="@/assets/icons/closeIcon.svg"
-            alt="closeIcon"
-            @click="changePopupState('showPopup1')"
-        /></span>
-      </div>
-    </div>
+    <PopupOffer v-if="showPopup1" :popup="'showPopup1'" />
+  </transition>
+  <transition name="popup-fade">
+    <PopupOffer v-if="showPopup2" :popup="'showPopup2'" />
+  </transition>
+  <transition name="popup-fade">
+    <PopupOffer v-if="showPopup3" :popup="'showPopup3'" />
+  </transition>
+  <transition name="popup-fade">
+    <PopupOffer v-if="showPopup4" :popup="'showPopup4'" />
   </transition>
 </template>
 
@@ -36,7 +35,9 @@ import Opportunities from '@/components/Pamphlet/Opportunities';
 import Descr from '@/components/Pamphlet/Descr';
 import Organisator from '@/components/Pamphlet/Organisator';
 import Contacts from '@/components/Pamphlet/Contacts';
+import PopupOffer from '@/components/Pamphlet/comp/PopupOffer';
 
+import { mapState } from 'vuex';
 export default {
   name: 'Background',
   components: {
@@ -48,13 +49,15 @@ export default {
     Opportunities,
     Descr,
     Organisator,
-    Contacts
+    Contacts,
+    PopupOffer
   },
-  computed: {
-    showPopup1() {
-      return this.$store.state.showPopup1;
-    }
-  },
+  // computed: {
+  //   showPopup1() {
+  //     return this.$store.state.showPopup1;
+  //   }
+  // },
+  computed: mapState(['showPopup1', 'showPopup2', 'showPopup3', 'showPopup4']),
   methods: {
     changePopupState(payload) {
       document.querySelector('.backgr').classList.toggle('active');
@@ -66,6 +69,12 @@ export default {
 
 <style lang="scss">
 .backgr {
+  background: no-repeat;
+  -moz-background-size: 100%; /* Firefox 3.6+ */
+  -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 100%; /* Opera 9.6+ */
+  background-size: 100%;
+  background-image: url('../../assets/icons/bgDesktopGradients.png');
   background-color: #00061b;
 }
 .backgr.active {
@@ -84,6 +93,9 @@ export default {
   -webkit-text-stroke-color: #ffffff;
 }
 @media screen and (max-width: 768px) {
+  .backgr {
+    background-image: url('../../assets/icons/bgMobileGradients.png');
+  }
   .container-padding {
     font-size: 1vw !important;
     padding: 0 3.125em;
@@ -125,7 +137,13 @@ export default {
 .popup-fade-leave-active {
   animation: fadeOut 0.5s;
 }
-.offerPopup {
+@media screen and (max-width: 768px) {
+  /* .backgr.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  } */
+}
+/* .offerPopup {
   box-sizing: border-box;
   position: fixed;
   z-index: 2;
@@ -136,8 +154,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* // filter: blur(5px);
-  // -webkit-filter: blur(5px); */
 }
 .popup-blurr {
   position: relative;
@@ -145,10 +161,6 @@ export default {
   left: 0;
   height: 100vh;
   width: 100vw;
-  /* // background-color: rgb(255, 255, 255);
-  
-  filter: blur(10px);
-  -webkit-filter: blur(10px); */
 }
 .popupWrapper {
   position: absolute;
@@ -156,7 +168,5 @@ export default {
   height: 37.9rem;
   background-color: #ffffff;
   z-index: 100;
-  /* filter: blur(0px);
-  -webkit-filter: blur(0px); */
-}
+} */
 </style>

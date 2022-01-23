@@ -6,6 +6,7 @@
         :offer-name="mainObj.offerName"
         :offer-price="mainObj.offerPrice"
         :offer-text="mainObj.offerText"
+        :popup="mainObj.popup"
         :main="true"
       />
     </div>
@@ -16,6 +17,7 @@
           :offer-name="card.offerName"
           :offer-text="card.offerText"
           :offer-price="card.offerPrice"
+          :popup="card.popup"
         />
       </div>
     </div>
@@ -39,7 +41,10 @@
         }}</span>
         <div v-show="fullSale" class="SumWrapper">
           <span class="saleSum">{{ $filters.numberWithSpace(sum) }}</span>
-          <span class="elName">{{
+          <span v-if="isAdditionalArea" class="elName">{{
+            ` ${$filters.numberWithSpace(21500)}`
+          }}</span>
+          <span v-if="!isAdditionalArea" class="elName">{{
             ` ${$filters.numberWithSpace(21000)}`
           }}</span>
         </div>
@@ -76,6 +81,7 @@ export default {
     mainObj: {
       offerName: 'BASIC',
       offerPrice: 8000,
+      popup: 'showPopup1',
       offerText:
         'Стенд\nЛоготип на сайті проєкту\nТранслювання відеоролика на місці події\nStories-дайджест про компанію\nПоширення вакансій компанії'
     },
@@ -83,18 +89,21 @@ export default {
       {
         offerName: 'SAPPHIRE',
         offerPrice: 4000,
+        popup: 'showPopup2',
         offerText:
           'Участь у другому дні проєкту\nПанельні дискусії\nInstagram Guide'
       },
       {
         offerName: 'RUBY',
         offerPrice: 5000,
+        popup: 'showPopup3',
         offerText:
           'Workshop від компанії\nSpeed dating\nРозсилка можливостей та вакансій від компаній'
       },
       {
         offerName: 'DIAMOND',
         offerPrice: 6000,
+        popup: 'showPopup4',
         offerText:
           'Пост-дайджест компаній в\nTelegram\nДень інтерактивних stories в Instagram\nДоступ до бази CV учасників'
       }
@@ -107,11 +116,14 @@ export default {
     },
     sum() {
       return this.$store.getters.getSum;
+    },
+    isAdditionalArea() {
+      return this.$store.state.additionalArea;
     }
   },
   watch: {
     sum() {
-      if (this.sum === 23000) {
+      if (this.sum === 23000 || this.sum === 23500) {
         this.fullSale = true;
       } else {
         this.fullSale = false;
@@ -210,7 +222,7 @@ export default {
   .mainOfferWrapper {
     display: flex;
     justify-content: center;
-    pointer-events: none;
+    // pointer-events: none;
   }
   .additionalText {
     font-size: 6.25rem;

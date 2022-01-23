@@ -11,16 +11,33 @@
       <Custom-checkbox v-model="checkedLocal" @click.prevent />
     </div> -->
     <div class="infoWrapper">
-      <InfoButton />
+      <InfoButton @click="changeCartItemByCont(), changePopupState(popup)" />
     </div>
     <div class="cardWrapper">
       <div class="offerName">
         <h4>{{ offerName }}</h4>
       </div>
       <div class="offerText">
-        <p @click="changePopupState('showPopup1')">
+        <p>
           {{ offerText }}
         </p>
+      </div>
+      <div v-if="main" class="offerArea">
+        <img
+          v-show="!isAdditionalArea"
+          class="additionalImg"
+          src="@/assets/icons/uncheckedIcon.svg"
+          alt="checkedIcon"
+          @click="changeAdditionalArea"
+        />
+        <img
+          v-show="isAdditionalArea"
+          class="additionalImg"
+          src="@/assets/icons/checkedIcon.svg"
+          alt="checkedIcon"
+          @click="changeAdditionalArea"
+        />
+        <span class="additionalArea">Додаткова площа(+ 500 UAN)</span>
       </div>
     </div>
   </div>
@@ -67,6 +84,10 @@ export default {
     main: {
       type: Boolean,
       default: false
+    },
+    popup: {
+      type: String,
+      required: true
     }
   },
   data: () => ({
@@ -89,6 +110,9 @@ export default {
       } else {
         return null;
       }
+    },
+    isAdditionalArea() {
+      return this.$store.state.additionalArea;
     }
   },
   // watch: {
@@ -114,8 +138,11 @@ export default {
         item: this.offerName.replace(/\s/g, '')
       });
     },
+    changeAdditionalArea() {
+      this.$store.commit('changeAdditionalArea');
+    },
     changePopupState(payload) {
-      console.log('hey');
+      console.log(payload);
       // document.querySelector('body').classList.toggle('active');
       // document.querySelectorAll('.container-padding').forEach((el) => {
       //   el.classList.toggle('active');
@@ -143,6 +170,7 @@ export default {
 }
 .containerMain {
   cursor: auto !important;
+  height: 18.2rem;
 }
 .chosen {
   background: linear-gradient(112.08deg, #4f20b4 0%, #1f0029 100%);
@@ -169,6 +197,23 @@ export default {
     line-height: 1.38rem;
     white-space: pre-line;
   }
+}
+.offerArea {
+  display: flex;
+  align-items: center;
+  margin-top: 0.83rem;
+}
+.additionalArea {
+  font-family: 'MontserratRegular';
+  margin-left: 0.93rem;
+  font-size: 0.93rem;
+  line-height: 1.38rem;
+}
+.additionalImg {
+  margin-top: 0.1rem;
+  margin-left: 2.9rem;
+  width: 0.8rem;
+  height: auto;
 }
 .priceGrad {
   background: linear-gradient(
@@ -241,7 +286,7 @@ export default {
 //   height: 100vh;
 //   width: 100vw;
 //   // background-color: rgb(255, 255, 255);
-  
+
 //   filter: blur(10px);
 //   -webkit-filter: blur(10px);
 // }
@@ -322,6 +367,26 @@ export default {
     right: 3.51em;
     bottom: 3.51rem;
     top: auto;
+  }
+  // .containerMain {
+  //   cursor: auto !important;
+  //   height: 18.2rem;
+  // }
+  .offerArea {
+    margin-top: -1rem;
+    margin-bottom: 7.18rem;
+  }
+  .additionalArea {
+    font-family: 'MontserratRegular';
+    font-size: 3.75rem;
+    margin-left: 3rem;
+    line-height: 5.625rem;
+  }
+  .additionalImg {
+    margin-top: 0.3rem;
+    width: 3.45rem;
+    margin-left: 11.56rem;
+    height: auto;
   }
 }
 </style>

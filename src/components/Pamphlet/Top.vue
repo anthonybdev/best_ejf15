@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <div class="top-container"></div>
     <h1 class="textLogo">EJF&#8217;15</h1>
     <img class="imgLogo" src="@/assets/EjfLogoWhite.svg" alt="whitelogo" />
   </div>

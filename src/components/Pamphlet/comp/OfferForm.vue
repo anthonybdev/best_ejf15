@@ -62,7 +62,7 @@ input {
   -webkit-font-smoothing: antialiased;
   background: #ffffff;
   line-height: 22px;
-  color: #b0b0b0;
+  color: #000000;
 }
 // @-moz-document url-prefix() {
 //   input {
