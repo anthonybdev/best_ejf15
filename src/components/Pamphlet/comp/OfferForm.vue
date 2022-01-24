@@ -1,6 +1,25 @@
 <template>
   <div>
     <form class="offerForm" @submit.prevent="onSumbit">
+      <div class="partnerBlock">
+        <img
+          v-show="!isPartner"
+          class="additionalImg"
+          src="@/assets/icons/uncheckedIcon.svg"
+          alt="checkedIcon"
+          @click="changeIsPartner"
+        />
+        <img
+          v-show="isPartner"
+          class="additionalImg"
+          src="@/assets/icons/checkedIcon.svg"
+          alt="checkedIcon"
+          @click="changeIsPartner"
+        />
+        <span class="additionalArea" @click="changeIsPartner"
+          >Постійний партнер</span
+        >
+      </div>
       <div class="inputWrapper">
         <input
           v-model="obj.companyName"
@@ -23,6 +42,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   data: () => ({
     obj: {
@@ -30,9 +50,15 @@ export default {
       companyEmail: ''
     }
   }),
+  computed: mapState(['isPartner']),
   methods: {
     onSumbit() {
       this.$store.dispatch('sendMail', this.obj);
+      this.obj.companyName = '';
+      this.obj.companyEmail = '';
+    },
+    changeIsPartner() {
+      this.$store.commit('changeIsPartner');
     }
   }
 };
@@ -41,7 +67,6 @@ export default {
 .offerForm {
   display: flex;
   flex-direction: column;
-  // align-items: center;
 }
 .inputWrapper {
   display: flex;
@@ -64,12 +89,6 @@ input {
   line-height: 22px;
   color: #000000;
 }
-// @-moz-document url-prefix() {
-//   input {
-//     font-size: 9px; /*reduce font size to match what is seen in chrome*/
-//     line-height: 11px;
-//   }
-// }
 input:first-child {
   margin-bottom: 1.8rem;
 }
@@ -79,7 +98,6 @@ input::placeholder {
 input:focus {
   outline: none;
   border: none;
-  // border: specify yours;
 }
 .sumbitButton {
   background: linear-gradient(112.08deg, #4f20b4 0%, #1f0029 100%),
@@ -100,6 +118,27 @@ input:focus {
   text-align: center;
   margin-top: 3.125rem;
 }
+.partnerBlock {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-top: 1.3rem;
+}
+.additionalArea {
+  font-family: 'MontserratRegular';
+  color: #ffffff;
+  margin-left: 0.93rem;
+  font-size: 1.25rem;
+  line-height: 1.52rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+.additionalImg {
+  margin-top: 0.1rem;
+  width: 1.041rem;
+  height: auto;
+  cursor: pointer;
+}
 @media screen and (max-width: 768px) {
   input:first-child {
     margin-bottom: 9.68rem;
@@ -118,6 +157,21 @@ input:focus {
   }
   .btnWrapper {
     margin-top: 7.5rem;
+  }
+  .partnerBlock {
+    margin-top: -1rem;
+    margin-bottom: 7.18rem;
+  }
+  .additionalArea {
+    font-family: 'MontserratRegular';
+    font-size: 3.75rem;
+    margin-left: 3rem;
+    line-height: 5.625rem;
+  }
+  .additionalImg {
+    margin-top: 0.3rem;
+    width: 4.68rem;
+    height: auto;
   }
 }
 </style>

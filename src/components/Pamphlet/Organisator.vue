@@ -31,7 +31,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 export default {
   name: 'Organisator'
 };
@@ -72,7 +71,6 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  // margin-left: 9rem;
 }
 .iconItem {
   display: flex;
@@ -134,7 +132,6 @@ export default {
     margin-top: 15.625rem;
     justify-content: space-around;
     flex-wrap: wrap;
-    // margin-left: 9rem;
   }
   .iconNum {
     font-family: 'BebasNeueCyrillic';

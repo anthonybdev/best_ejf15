@@ -14,8 +14,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: 'ReviewCard',
   props: {
@@ -36,9 +34,9 @@ export default {
   font-family: 'BebasNeueBold';
   font-size: 1vw;
   width: 23.5em;
-  height: 14.86em;
+  height: 18em;
   background: linear-gradient(112.08deg, rgba(0, 6, 27, 0) 0%, #1f0029 100%);
-  border-radius: 1.041em; // to be tested
+  border-radius: 15px;
 }
 .cardWrapper {
   color: #fff;
@@ -77,7 +75,7 @@ export default {
     margin-top: 3.125rem;
     width: 73.4rem;
     margin-left: 11.56rem;
-    margin-bottom: 23.75rem;
+    margin-bottom: 10rem;
     p {
       font-size: 3.75rem;
       line-height: 4.68rem;

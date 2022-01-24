@@ -10,7 +10,7 @@
           src="@/assets/icons/CalendarIcon.svg"
           alt="calendarIcon"
         />
-        <span class="IconText">00.00.2022 — 00.00.2022</span>
+        <span class="IconText">20.04.2022 — 21.04.2022</span>
       </div>
       <div class="iconItem">
         <img
@@ -25,13 +25,11 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: 'Invest',
   mounted() {
     window.onload = () => {
-      this.$store.commit('changeFormSended', false);
+      this.$store.commit('changeLoadedState', false);
     };
   }
 };
@@ -44,7 +42,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 7.63rem;
+  padding-top: 7.63rem;
 }
 .textTop {
   text-align: center;
@@ -61,7 +59,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // margin: auto;
 }
 .iconItem:last-child {
   margin-left: 8.61rem;
@@ -81,6 +78,9 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    margin-top: 150px;
+  }
   .textTop {
     font-size: 7.5em;
     letter-spacing: 0.5rem;

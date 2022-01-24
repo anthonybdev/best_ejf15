@@ -6,16 +6,15 @@
     </div>
     <div class="infoTextWrapper">
       <div class="textGrad">
-        <span>ЩО ЦЕ</span>
+        <span>ПРО ПРОЄКТ</span>
       </div>
       <div class="infoText-wrapper">
         <span class="infoText"
-          >Це проєкт з 14-річним досвідом, який протягом двох днів допомагає
-          студентам познайомитися з провідними компаніями України, знайти
-          реалізацію своїх навичок та почати свій кар’єрний шлях, а компаніям —
-          розповісти про ринок праці, актуальні вакансії, майбутні курси, знайти
-          хороших працівників та стажерів серед студентів різних
-          спеціальностей.</span
+          >Це захід з 14-річним досвідом, який протягом двох днів допомагає
+          студентам познайомитися з провідними компаніями України, реалізувати
+          свої навички, а компаніям — розповісти про ринок праці, актуальні
+          вакансії, майбутні курси, знайти хороших працівників та стажерів серед
+          студентів різних спеціальностей.</span
         >
       </div>
     </div>
@@ -23,8 +22,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: 'AboutEJF'
 };
@@ -67,7 +64,7 @@ export default {
     rgba(204, 0, 255, 0.1) 100%
   );
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  width: 5.9em;
+  width: 10.5rem;
   text-align: center;
   margin-bottom: 1.5em;
 }
@@ -104,12 +101,14 @@ export default {
     margin-top: -0.3rem;
   }
   .textGrad {
-    width: 13.125rem;
+    width: 25rem;
     margin-bottom: 3.75rem;
   }
   .textGrad > span {
     font-size: 5.625rem;
     line-height: 6.5rem;
+    padding-top: 1rem;
+    display: block;
   }
   .infoText-wrapper {
     line-height: 4.68rem;

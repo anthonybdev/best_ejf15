@@ -11,7 +11,7 @@
           alt="voiceOverIcon"
         />
         <span class="IconText"
-          >Детальніше розказати студентам про можливості в компанії</span
+          >Детальніше розказати студентам про компанію та можливості в ній</span
         >
       </div>
       <div class="iconItem">
@@ -22,7 +22,7 @@
         />
         <span class="IconText"
           >Підвищити впізнаваність свого бренду серед студентів у момент
-          планування кар'єрного шляху.</span
+          планування кар'єрного шляху</span
         >
       </div>
       <div class="iconItem">
@@ -40,8 +40,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: 'Invest'
 };
@@ -56,7 +54,6 @@ export default {
   margin-top: 8.33rem;
 }
 .textTop {
-  // text-align: center;
   font-size: 3.33rem;
   letter-spacing: 0.1em;
   color: #ffffff;

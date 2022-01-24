@@ -2,7 +2,10 @@
   <div class="container">
     <div class="faceImg">
       <!-- <img src="@/assets/icons/blankImg.svg" alt="faceImg" /> -->
-      <img :src="require('@/assets/icons/' + obj.img + '.svg')" alt="faceImg" />
+      <img
+        :src="require('@/assets/faceImg/' + obj.img + '.jpg')"
+        alt="faceImg"
+      />
     </div>
     <div class="cardWrapper">
       <div class="compName">
@@ -31,6 +34,14 @@
         <!-- <a href="mailto:vika.horbachuk@gmail.com">vika.horbachuk@gmail.com</a> -->
         <a :href="`mailto:${obj.mail}`">{{ obj.mail }}</a>
       </div>
+      <!-- <div class="compEmail">
+        <img
+          class="mailIcon"
+          src="@/assets/icons/linkedInIcon.svg"
+          alt="mailIcon"
+        />
+        <a :href="`mailto:${obj.linkedIn}`">{{ obj.linkedIn }}</a>
+      </div> -->
     </div>
   </div>
 </template>

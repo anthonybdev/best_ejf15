@@ -37,35 +37,19 @@
           alt="checkedIcon"
           @click="changeAdditionalArea"
         />
-        <span class="additionalArea">Додаткова площа(+ 500 UAN)</span>
+        <span class="additionalArea" @click="changeAdditionalArea"
+          >Додаткова площа (+ 2 000 &#8372;)</span
+        >
       </div>
     </div>
   </div>
-  <!-- <transition name="popup-fade">
-    <div v-if="showPopup" class="offerPopup">
-      <div class="popup-blurr"></div>
-      <div class="popupWrapper">
-        <div>This is popup</div>
-        <span class="closeButton"
-          ><img
-            src="@/assets/icons/closeIcon.svg"
-            alt="closeIcon"
-            @click="changePopupState('showPopup1')"
-        /></span>
-      </div>
-    </div>
-  </transition> -->
 </template>
 
 <script>
-// @ is an alias to /src
-// import CustomCheckbox from '@/components/Pamphlet/utils/CustomCheckbox';
 import InfoButton from '@/components/Pamphlet/utils/InfoButton';
-// import { mapState } from 'vuex';
 export default {
   name: 'OfferCard',
   components: {
-    // CustomCheckbox
     InfoButton
   },
   props: {
@@ -91,17 +75,8 @@ export default {
     }
   },
   data: () => ({
-    checkedLocal: false,
-    showPopup: false
+    checkedLocal: false
   }),
-  // computed: mapState({
-  //   checked: function (state) {
-  //     console.log('fromComputed');
-  //     const checked = state.cartItems[this.offerName];
-  //     this.checkedLocal = checked;
-  //     return checked;
-  //   }
-  // }),
   computed: {
     checked() {
       if (this.$store.state.cartItems[this.offerName.replace(/\s/g, '')]) {
@@ -115,12 +90,6 @@ export default {
       return this.$store.state.additionalArea;
     }
   },
-  // watch: {
-  //   checked() {
-  //     console.log('fromComputed');
-  //     this.checkedLocal = this.checked;
-  //   }
-  // },
   created() {
     if (this.main) {
       this.checkedLocal = true;
@@ -142,15 +111,9 @@ export default {
       this.$store.commit('changeAdditionalArea');
     },
     changePopupState(payload) {
-      console.log(payload);
-      // document.querySelector('body').classList.toggle('active');
-      // document.querySelectorAll('.container-padding').forEach((el) => {
-      //   el.classList.toggle('active');
-      // });
-      // console.log(document.querySelectorAll('.container-padding'));
+      document.body.classList.toggle('hiddenOverflow');
       document.querySelector('.backgr').classList.toggle('active');
       this.$store.commit('changePopupState', payload);
-      // this.showPopup = !this.showPopup;
     }
   }
 };
@@ -170,7 +133,7 @@ export default {
 }
 .containerMain {
   cursor: auto !important;
-  height: 18.2rem;
+  height: 21rem;
 }
 .chosen {
   background: linear-gradient(112.08deg, #4f20b4 0%, #1f0029 100%);
@@ -206,14 +169,16 @@ export default {
 .additionalArea {
   font-family: 'MontserratRegular';
   margin-left: 0.93rem;
-  font-size: 0.93rem;
+  font-size: 0.83rem;
   line-height: 1.38rem;
+  cursor: pointer;
 }
 .additionalImg {
   margin-top: 0.1rem;
   margin-left: 2.9rem;
-  width: 0.8rem;
+  width: 1.041rem;
   height: auto;
+  cursor: pointer;
 }
 .priceGrad {
   background: linear-gradient(
@@ -384,7 +349,7 @@ export default {
   }
   .additionalImg {
     margin-top: 0.3rem;
-    width: 3.45rem;
+    width: 4.68rem;
     margin-left: 11.56rem;
     height: auto;
   }

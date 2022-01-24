@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import ContantCard from '@/components/Pamphlet/comp/ContantCard';
 export default {
   name: 'Contant',
@@ -24,21 +23,24 @@ export default {
         position: 'Головна організаторка',
         tel: '+380977632333',
         mail: 'vika.horbachuk@gmail.com',
-        img: 'blankImg'
+        // linkedIn: 'https://www.linkedin.com/in/victoria-horbachuk-a06566207',
+        img: 'viktoriahorbachuk'
       },
       {
         name: 'копчак ЮЛІЯ',
         position: 'Відповідальна за корпоративні зв’язки',
         tel: '+380673140145',
         mail: 'yulya.kopchak@gmail.com',
-        img: 'blankImg'
+        // linkedIn: 'https://www.linkedin.com/in/yulya-kopchak-6b7232224',
+        img: 'yuliakopchak'
       },
       {
         name: 'ЗАГРОДСЬКА ОЛЕНА',
         position: 'Відповідальна за корпоративні зв’язки',
         tel: '+380975371323',
         mail: 'olenazahrodska@gmail.com',
-        img: 'blankImg'
+        // linkedIn: 'https://www.linkedin.com/in/olena-zahrodska-7b1b47223',
+        img: 'zahorodskaolena'
       }
     ]
   })

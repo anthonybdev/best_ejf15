@@ -1,14 +1,16 @@
 <template>
   <div class="backgr">
     <Top />
-    <Invest />
-    <AboutEJF />
-    <Opportunities />
-    <Descr />
-    <Reviews />
-    <Offers />
-    <Organisator />
-    <Contacts />
+    <div class="gradient">
+      <Invest />
+      <AboutEJF />
+      <Opportunities />
+      <Descr />
+      <Reviews />
+      <Offers />
+      <Organisator />
+      <Contacts />
+    </div>
   </div>
   <transition name="popup-fade">
     <PopupOffer v-if="showPopup1" :popup="'showPopup1'" />
@@ -22,10 +24,10 @@
   <transition name="popup-fade">
     <PopupOffer v-if="showPopup4" :popup="'showPopup4'" />
   </transition>
+  <FormLoader v-if="showFormLoader" />
 </template>
 
 <script>
-// @ is an alias to /src
 import Top from '@/components/Pamphlet/Top';
 import AboutEJF from '@/components/Pamphlet/AboutEJF';
 import Reviews from '@/components/Pamphlet/Reviews';
@@ -36,6 +38,7 @@ import Descr from '@/components/Pamphlet/Descr';
 import Organisator from '@/components/Pamphlet/Organisator';
 import Contacts from '@/components/Pamphlet/Contacts';
 import PopupOffer from '@/components/Pamphlet/comp/PopupOffer';
+import FormLoader from '@/components/Pamphlet/utils/FormLoader';
 
 import { mapState } from 'vuex';
 export default {
@@ -50,14 +53,18 @@ export default {
     Descr,
     Organisator,
     Contacts,
-    PopupOffer
+    PopupOffer,
+    FormLoader
   },
-  // computed: {
-  //   showPopup1() {
-  //     return this.$store.state.showPopup1;
-  //   }
-  // },
-  computed: mapState(['showPopup1', 'showPopup2', 'showPopup3', 'showPopup4']),
+  computed: mapState([
+    'showPopup1',
+    'showPopup2',
+    'showPopup3',
+    'showPopup4',
+    'showFormLoader',
+    'showGoodResult',
+    'showBadResult'
+  ]),
   methods: {
     changePopupState(payload) {
       document.querySelector('.backgr').classList.toggle('active');
@@ -69,22 +76,21 @@ export default {
 
 <style lang="scss">
 .backgr {
+  background-color: #00061b;
+}
+.gradient {
   background: no-repeat;
   -moz-background-size: 100%; /* Firefox 3.6+ */
   -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
   -o-background-size: 100%; /* Opera 9.6+ */
   background-size: 100%;
-  background-image: url('../../assets/icons/bgDesktopGradients.png');
-  background-color: #00061b;
+  z-index: 100;
+  background-image: url('../../assets/icons/bgGradients.png');
 }
 .backgr.active {
   filter: blur(1px);
   -webkit-filter: blur(1px);
 }
-// .container-padding.active {
-//   filter: blur(5px);
-//   -webkit-filter: blur(5px);
-// }
 .heading {
   font-size: 5em;
   letter-spacing: 0.2em;
@@ -94,12 +100,20 @@ export default {
 }
 @media screen and (max-width: 768px) {
   .backgr {
+    background: no-repeat;
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%;
     background-image: url('../../assets/icons/bgMobileGradients.png');
+    background-color: #00061b;
+  }
+  .gradient {
+    background: none;
   }
   .container-padding {
     font-size: 1vw !important;
     padding: 0 3.125em;
-    // margin-top: 46.875rem;
     margin-top: 150px;
   }
   .heading {
@@ -137,36 +151,4 @@ export default {
 .popup-fade-leave-active {
   animation: fadeOut 0.5s;
 }
-@media screen and (max-width: 768px) {
-  /* .backgr.active {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  } */
-}
-/* .offerPopup {
-  box-sizing: border-box;
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.popup-blurr {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-}
-.popupWrapper {
-  position: absolute;
-  width: 53.75rem;
-  height: 37.9rem;
-  background-color: #ffffff;
-  z-index: 100;
-} */
 </style>

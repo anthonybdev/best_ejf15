@@ -10,7 +10,7 @@ import animationData from '../assets/data.json';
 import { mapState } from 'vuex';
 
 export default {
-  computed: mapState(['showPreloader', 'isFormSended']),
+  computed: mapState(['showPreloader', 'isLoaded', 'isFormSended']),
   mounted() {
     const animation = lottie.loadAnimation({
       container: document.querySelector('#preloader'), // the dom element
@@ -20,7 +20,7 @@ export default {
       autoplay: true
     });
     animation.addEventListener('loopComplete', () => {
-      if (!this.isFormSended) {
+      if (!this.isLoaded) {
         this.$store.commit('changePreloaderState', false);
         animation.destroy();
       }
@@ -30,48 +30,11 @@ export default {
 </script>
 
 <style lang="scss">
-// .preloader-wrapper {
-//   position: relative !important;
-//   // top: 0;
-//   // left: 0;
-//   height: 100vh;
-//   background-color: white;
-//   width: auto;
-//   display: flex;
-//   opacity: 1;
-//   justify-content: center;
-//   z-index: 9999;
-// }
-
-// @media screen and (max-width: 520px) {
-//   .preloader-wrapper {
-//     top: 75%;
-//   }
-// }
-// @media screen and (max-width: 900px) {
-//   .preloader-wrapper {
-//     top: 65%;
-//   }
-// }
-// .preloader-wrapper {
-//   height: 100vh;
-//   width: auto;
-//   display: flex;
-//   justify-content: center;
-// }
-
-
-
-
 .preloader-wrapper {
   position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   z-index: 999;
   height: 100vh;
   overflow: hidden;
-  // width: 100%;
   background-color: white;
 }
 
@@ -80,38 +43,4 @@ export default {
   width: 100vw !important;
   display: flex;
 }
-
-// .fade-enter-active {
-//   transition: opacity 0.8s;
-//   animation-name: scaleIn;
-//   animation-duration: 0.8s;
-// }
-// .fade-leave-active {
-//   transition: opacity 0.3s;
-//   animation-name: scaleOut;
-//   animation-duration: 0.3s;
-// }
-
-// .fade-enter {
-//   opacity: 0;
-// }
-// .fade-leave-to {
-//   opacity: 0;
-// }
-// @keyframes scaleOut {
-//   0% {
-//     transform: scale(1);
-//   }
-//   100% {
-//     transform: scale(0);
-//   }
-// }
-// @keyframes scaleIn {
-//   0% {
-//     transform: scale(0);
-//   }
-//   100% {
-//     transform: scale(1);
-//   }
-// }
 </style>

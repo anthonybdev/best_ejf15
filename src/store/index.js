@@ -4,18 +4,18 @@ import emailjs from '@emailjs/browser';
 export default createStore({
   state: {
     showPreloader: true, // must be true
-    isFormSended: false,
-    cartItems: {
-      // OFFER1: false,
-      // OFFER2: false,
-      // OFFERNAME3: false
-    },
+    isLoaded: false,
+    cartItems: {},
     showPopup1: false,
     showPopup2: false,
     showPopup3: false,
     showPopup4: false,
     sum: 0,
-    additionalArea: false
+    additionalArea: false,
+    isPartner: false,
+    showFormLoader: false,
+    showGoodResult: false,
+    showBadResult: false
   },
   getters: {
     getSum(state) {
@@ -23,9 +23,25 @@ export default createStore({
       Object.keys(state.cartItems).forEach((item) => {
         if (state.cartItems[item].state) temp += state.cartItems[item].price;
       });
-      if (state.additionalArea) {
-        return (temp += 500);
+      return temp;
+    },
+    getSale(state, getters) {
+      if (getters.getSum == 25000) {
+        return true;
+      } else {
+        return false;
       }
+    },
+    getTotalSum(state, getters) {
+      let temp = getters.getSum;
+      if (state.additionalArea) temp += 2000;
+      return temp;
+    },
+    getSaleSum(state, getters) {
+      let temp = getters.getSum;
+      if (state.additionalArea) temp += 2000;
+      if (getters.getSale) temp -= 2000;
+      if (state.isPartner) temp *= 0.95;
       return temp;
     }
   },
@@ -33,12 +49,23 @@ export default createStore({
     changePreloaderState(state, payload) {
       state.showPreloader = payload;
     },
+    changeFormLoader(state, payload) {
+      state.showFormLoader = payload;
+    },
+    changeGoodResult(state, payload) {
+      state.showGoodResult = payload;
+    },
+    changeBadResult(state, payload) {
+      state.showBadResult = payload;
+    },
     changePopupState(state, payload) {
-      console.log(payload);
       state[payload] = !state[payload];
     },
     changeFormSended(state, payload) {
       state.isFormSended = payload;
+    },
+    changeLoadedState(state, payload) {
+      state.isLoaded = payload;
     },
     changeCartItem(state, payload) {
       state.cartItems[payload.item] = {
@@ -53,12 +80,14 @@ export default createStore({
     },
     changeAdditionalArea(state) {
       state.additionalArea = !state.additionalArea;
+    },
+    changeIsPartner(state) {
+      state.isPartner = !state.isPartner;
     }
   },
   actions: {
     sendMail({ state, getters, commit }, payload) {
-      commit('changePreloaderState', true);
-      commit('changeFormSended', true);
+      commit('changeFormLoader', true);
       let finalArray = [];
       Object.keys(state.cartItems).forEach((el) => {
         const element = state.cartItems[el];
@@ -66,14 +95,16 @@ export default createStore({
           finalArray.push([element.itemName, element.price]);
         }
       });
-      let sum = getters.getSum;
-      if (sum === 23000) sum = 21000;
-      if (sum === 23500) sum = 21500;
+      let totalSum = getters.getTotalSum;
+      let saleSum = getters.getSaleSum;
       const offerObj = {
         companyName: payload.companyName,
         companyEmail: payload.companyEmail,
         offerObj: finalArray.toString(),
-        totalSum: sum
+        totalSum: totalSum,
+        saleSum: saleSum,
+        partner: state.isPartner ? 'Yes' : 'No',
+        additionalArea: state.additionalArea ? 'Yes' : 'No'
       };
       emailjs
         .send(
@@ -85,11 +116,11 @@ export default createStore({
         .then(
           (result) => {
             console.log('SUCCESS!', result.text);
-            commit('changeFormSended', false);
+            commit('changeGoodResult', true);
           },
           (error) => {
             console.log('FAILED...', error.text);
-            // commit('changePreloaderState', true);
+            commit('changeBadResult', true);
           }
         );
     }

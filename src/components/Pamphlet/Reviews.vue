@@ -20,19 +20,21 @@ export default {
   data: () => ({
     propObj: [
       {
-        compName: 'COMPANY NAME 1',
+        compName: 'AMC Bridge',
         compText:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+          'Роксолана Харузіна: "Класна подія, яка збирає в одному місці дуже амбітних і талановитих студентів".'
       },
       {
-        compName: 'COMPANY NAME 2',
-        compText:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        compName: 'Infopulse',
+        compText: `Юлія Фіцак: "Цього року ми вже втретє приєдналися до ярмарку кар'єри... Ми прагнемо бути для
+          української молоді компанією, у якій вони можуть зростати як професійно, так і особистісно; і постійно докладаємо 
+          до цього максимальних зусиль. Дякуємо за тісну
+          співпрацю, організацію заходу та щорічні запрошення!".`
       },
       {
-        compName: 'COMPANY NAME 3',
+        compName: 'Cypress',
         compText:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+          'Ірина Петрусь: "Інженерний ярмарок кар’єри є дуже професійним в плані організації. Ми щороку беремо участь, адже отримуємо хороших кандидатів і можливість прорекламувати компанію. Тут завжди хороша атмосфера та організаторська команда. Дякую!".'
       }
     ]
   })
@@ -51,7 +53,7 @@ export default {
   margin-top: 4em;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 22.4em;
+  margin-bottom: 27.4em;
 }
 @media screen and (max-width: 768px) {
   .reviewsWrapper {

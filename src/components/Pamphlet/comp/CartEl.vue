@@ -1,13 +1,13 @@
 <template>
   <div class="elWrap">
     <span class="elName">{{ el.itemName }}</span>
-    <span class="elPrice">{{ $filters.numberWithSpace(el.price) }}</span>
+    <span class="elPrice"
+      >{{ $filters.numberWithSpace(el.price) }} &#8372;</span
+    >
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: 'CartEl',
   props: {

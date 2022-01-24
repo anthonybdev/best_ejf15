@@ -1,13 +1,5 @@
 <template>
   <Preloader v-if="showPreloader" class="preloader"></Preloader>
-  <!-- <transition name="fadeIn">
-    <div v-show="!showPreloader">
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </div>
-    </div>
-  </transition> -->
   <router-view />
 </template>
 
@@ -30,10 +22,6 @@ export default {
   font-family: 'BebasNeueBold';
   src: url('./assets/fonts/BebasNeue_Bold.otf');
 }
-// @font-face {
-//   font-family: 'MontserratRegular';
-//   src: url('./assets/fonts/Montserrat-Regular.otf');
-// }
 @font-face {
   font-family: 'MontserratRegular';
   // src: url('./assets/fonts/Montserrat-Regular.otf');
@@ -45,8 +33,11 @@ export default {
 }
 @font-face {
   font-family: 'MontserratBold';
-  // src: url('./assets/fonts/Montserrat-Light.otf');
   src: url('./assets/fonts/Montserrat-Regular.otf');
+}
+@font-face {
+  font-family: 'UkrGryvna';
+  src: url('./assets/fonts/ukrGryvna.otf');
 }
 * {
   margin: 0px;
@@ -59,10 +50,9 @@ h4 {
   font-size: 100%;
   font-weight: normal;
 }
-
-// html {
-//   margin-top: -16px !important;
-// }
+.hiddenOverflow {
+  overflow: hidden;
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -71,16 +61,26 @@ h4 {
 }
 .fadeIn-enter-active,
 .fadeIn-leave-active {
-  transition: opacity 0.5s ease;
+  // transition: opacity 1s ease-in;
+  transition: opacity 1.3s ease-in-out;
 }
 
 .fadeIn-enter-from,
 .fadeIn-leave-to {
   opacity: 0;
 }
+.fadeIn1-enter-active,
+.fadeIn1-leave-active {
+  // transition: opacity 2s ease-in;
+  transition: opacity 3s ease;
+}
+
+.fadeIn1-enter-from,
+.fadeIn1-leave-to {
+  opacity: 0;
+}
 .preloader {
   position: absolute;
-  // z-index: 999;
 }
 #nav {
   padding: 30px;
@@ -100,5 +100,27 @@ h4 {
 
 html {
   font-size: 1vw;
+}
+@media screen and (max-width: 900px) {
+  .fadeIn-enter-active,
+  .fadeIn-leave-active {
+    // transition: opacity 1s ease-in;
+    transition: opacity 0.5s ease;
+  }
+
+  .fadeIn-enter-from,
+  .fadeIn-leave-to {
+    opacity: 0;
+  }
+  .fadeIn1-enter-active,
+  .fadeIn1-leave-active {
+    // transition: opacity 2s ease-in;
+    transition: opacity 3s ease;
+  }
+
+  .fadeIn1-enter-from,
+  .fadeIn1-leave-to {
+    opacity: 0;
+  }
 }
 </style>
