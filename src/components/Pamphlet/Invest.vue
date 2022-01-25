@@ -18,7 +18,9 @@
           src="@/assets/icons/locationIcon.svg"
           alt="locationIcon"
         />
-        <span class="IconText">Львівська Політехніка</span>
+        <span class="IconText"
+          >Національний університет<br />"Львівська політехніка"</span
+        >
       </div>
     </div>
   </div>
@@ -74,6 +76,7 @@ export default {
   font-size: 1.25rem;
   line-height: 1.52rem;
   letter-spacing: 0.1rem;
+  text-align: center;
   color: #ffffff;
 }
 

@@ -2,8 +2,8 @@
   <div class="formLoaderWrapper">
     <div id="loaderComp"></div>
   </div>
-  <FormResult v-if="showGoodResult" />
-  <FormResult v-if="showBadResult" />
+  <FormResult v-if="showGoodResult && isResult" />
+  <FormResult v-if="showBadResult && isResult" />
 </template>
 
 <script>
@@ -16,6 +16,9 @@ export default {
   components: {
     FormResult
   },
+  data: () => ({
+    isResult: false
+  }),
   computed: mapState(['showGoodResult', 'showBadResult']),
   mounted() {
     const animation = lottie.loadAnimation({
@@ -28,6 +31,7 @@ export default {
     animation.addEventListener('loopComplete', () => {
       if (this.showGoodResult || this.showBadResult) {
         animation.destroy();
+        this.isResult = true;
       }
     });
     setTimeout(() => {

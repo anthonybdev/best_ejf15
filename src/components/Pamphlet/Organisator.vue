@@ -2,10 +2,21 @@
   <div class="container container-padding">
     <h3 class="heading">ОРГАНІЗАТОР&nbsp;ПРОЄКТУ</h3>
     <div class="infoWrapper">
-      <img class="infoImg" src="@/assets/icons/bestIcon.svg" alt="bestIcon" />
+      <a
+        rel="noreferrer noopener"
+        target="_blank"
+        href="https://best-lviv.org.ua/"
+        class="imgLink"
+      >
+        <img class="infoImg" src="@/assets/icons/bestIcon.svg" alt="bestIcon" />
+      </a>
       <span class="infoText"
-        ><span class="infoTextBold"
-          >BEST (Board of European Students of Technology)</span
+        ><a
+          class="infoTextBold"
+          rel="noreferrer noopener"
+          target="_blank"
+          href="https://best-lviv.org.ua/"
+          >BEST (Board of European Students of Technology)</a
         >
         – неприбуткова громадська організація, яка об’єднує студентів технічних
         спеціальностей для забезпечення обміну знаннями та співпраці компаній,
@@ -22,9 +33,9 @@
         <span class="IconText">Країни</span>
       </div>
       <div class="iconItem">
-        <span class="iconPlus">+</span>
-        <span class="iconNum">30</span>
-        <span class="IconText">Років досвіду</span>
+        <!-- <span class="iconPlus">+</span> -->
+        <span class="iconNum">33</span>
+        <span class="IconText">Роки досвіду</span>
       </div>
     </div>
   </div>
@@ -65,6 +76,7 @@ export default {
 .infoTextBold {
   font-weight: 700;
   font-family: 'MontserratBold';
+  color: #ffffff;
 }
 .iconsWrapper {
   margin-top: 4rem;

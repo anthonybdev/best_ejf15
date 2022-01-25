@@ -38,7 +38,7 @@
           @click="changeAdditionalArea"
         />
         <span class="additionalArea" @click="changeAdditionalArea"
-          >Додаткова площа (+ 2 000 &#8372;)</span
+          >Додаткова площа (+ 3 000 &#8372;)</span
         >
       </div>
     </div>

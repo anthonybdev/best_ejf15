@@ -34,6 +34,35 @@
         <!-- <a href="mailto:vika.horbachuk@gmail.com">vika.horbachuk@gmail.com</a> -->
         <a :href="`mailto:${obj.mail}`">{{ obj.mail }}</a>
       </div>
+      <div class="botIconsWrapper">
+        <div>
+          <a :href="obj.telegram" rel="noreferrer noopener" target="_blank">
+            <img
+              src="@/assets/icons/telegramIcon.svg"
+              alt="telegramIcon"
+              class="baseIcon"
+            />
+          </a>
+        </div>
+        <div>
+          <a :href="obj.inst" rel="noreferrer noopener" target="_blank">
+            <img
+              src="@/assets/icons/InstagramIcon.svg"
+              alt="instagramIcon"
+              class="baseIcon"
+            />
+          </a>
+        </div>
+        <div>
+          <a :href="obj.linkedIn" rel="noreferrer noopener" target="_blank">
+            <img
+              src="@/assets/icons/linkedInIcon.svg"
+              alt="linkedInIcon"
+              class="baseIcon"
+            />
+          </a>
+        </div>
+      </div>
       <!-- <div class="compEmail">
         <img
           class="mailIcon"
@@ -62,7 +91,7 @@ export default {
   position: relative;
   font-size: 1vw;
   width: 23.5rem;
-  height: 13.125rem;
+  height: 16.31rem;
   background: linear-gradient(112.08deg, rgba(0, 6, 27, 0) 0%, #1f0029 100%);
   border-radius: 15px; // to be tested
 }
@@ -114,14 +143,25 @@ a {
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
-  top: -90%;
+  top: -75%;
   border-radius: 15px 15px 0px 0px;
+}
+.botIconsWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6.52rem;
+  margin-top: 1.875rem;
+}
+.baseIcon {
+  height: 1.25rem;
+  width: auto;
 }
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;
     margin-top: 46.875rem !important;
-    height: 43.75rem;
+    // height: 43.75rem;
+    height: 100%;
     border-radius: 15px;
   }
   .cardWrapper {
@@ -149,7 +189,10 @@ a {
     letter-spacing: 0.5rem;
     text-decoration: none;
   }
-
+  .compNumber,
+  .compEmail {
+    margin-left: 5rem;
+  }
   .phoneIcon,
   .mailIcon {
     width: 3.98rem;
@@ -161,7 +204,18 @@ a {
     height: auto;
   }
   .faceImg {
-    top: -77%;
+    top: -60%;
+  }
+  .botIconsWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25%;
+    margin-top: 8rem;
+    padding-bottom: 6rem;
+  }
+  .baseIcon {
+    height: 5rem;
+    width: auto;
   }
 }
 </style>

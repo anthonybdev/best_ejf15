@@ -99,7 +99,6 @@ export default {
 .textGrad > span {
   font-size: 2.5rem;
   color: #ffffff;
-  padding-top: 1rem;
   display: block;
 }
 .infoText-wrapper {
@@ -143,6 +142,7 @@ export default {
   .textGrad > span {
     font-size: 5.625rem;
     line-height: 6.5rem;
+    padding-top: 1rem;
     color: #ffffff;
   }
   .infoText-wrapper {

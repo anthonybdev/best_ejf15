@@ -34,12 +34,12 @@ export default createStore({
     },
     getTotalSum(state, getters) {
       let temp = getters.getSum;
-      if (state.additionalArea) temp += 2000;
+      if (state.additionalArea) temp += 3000;
       return temp;
     },
     getSaleSum(state, getters) {
       let temp = getters.getSum;
-      if (state.additionalArea) temp += 2000;
+      if (state.additionalArea) temp += 3000;
       if (getters.getSale) temp -= 2000;
       if (state.isPartner) temp *= 0.95;
       return temp;

@@ -114,7 +114,7 @@ export default {
     ],
     areaObj: {
       itemName: 'Додаткова площа',
-      price: 2000
+      price: 3000
     },
     totalSum: 0,
     saleSum: 0

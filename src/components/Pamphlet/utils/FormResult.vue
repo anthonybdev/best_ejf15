@@ -20,7 +20,7 @@ export default {
           this.$store.commit('changeFormLoader', false);
         }, 1000);
       }, 4000);
-    }, 50);
+    }, 1);
   }
 };
 </script>

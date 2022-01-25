@@ -6,6 +6,18 @@
         <ContantCard :obj="item" />
       </div>
     </div>
+    <div class="footer">
+      <span class="footerText"
+        >&copy; 2022&nbsp;&nbsp; Powered by
+        <a
+          rel="noreferrer noopener"
+          target="_blank"
+          href="https://best-lviv.org.ua/"
+          class="footerLink"
+          >BEST Lviv</a
+        ></span
+      >
+    </div>
   </div>
 </template>
 
@@ -23,24 +35,30 @@ export default {
         position: 'Головна організаторка',
         tel: '+380977632333',
         mail: 'vika.horbachuk@gmail.com',
-        // linkedIn: 'https://www.linkedin.com/in/victoria-horbachuk-a06566207',
-        img: 'viktoriahorbachuk'
+        linkedIn: 'https://www.linkedin.com/in/victoria-horbachuk-a06566207',
+        img: 'viktoriahorbachuk',
+        inst: 'https://instagram.com/vika.hbhk',
+        telegram: 'http://t.me/vikahbhk'
       },
       {
         name: 'копчак ЮЛІЯ',
         position: 'Відповідальна за корпоративні зв’язки',
         tel: '+380673140145',
         mail: 'yulya.kopchak@gmail.com',
-        // linkedIn: 'https://www.linkedin.com/in/yulya-kopchak-6b7232224',
-        img: 'yuliakopchak'
+        linkedIn: 'https://www.linkedin.com/in/yulya-kopchak-6b7232224',
+        img: 'yuliakopchak',
+        inst: 'https://instagram.com/_i_yulya',
+        telegram: 'http://t.me/i_yulya'
       },
       {
         name: 'ЗАГРОДСЬКА ОЛЕНА',
         position: 'Відповідальна за корпоративні зв’язки',
         tel: '+380975371323',
         mail: 'olenazahrodska@gmail.com',
-        // linkedIn: 'https://www.linkedin.com/in/olena-zahrodska-7b1b47223',
-        img: 'zahorodskaolena'
+        linkedIn: 'https://www.linkedin.com/in/olena-zahrodska-7b1b47223',
+        img: 'zahorodskaolena',
+        inst: 'https://instagram.com/zahrodskayaa',
+        telegram: 'http://t.me/zahrodskayaa'
       }
     ]
   })
@@ -59,7 +77,19 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-bottom: 24rem;
+  padding-bottom: 10rem;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+}
+.footerText {
+  font-size: 1.25rem;
+  color: #ffffff;
+  padding-bottom: 5rem;
+}
+.footerLink {
+  color: #ffffff;
 }
 @media screen and (max-width: 768px) {
   .container {
@@ -67,7 +97,15 @@ export default {
   }
   .contactsWrapper {
     flex-direction: column;
-    padding-bottom: 35rem;
+    padding-bottom: 25rem;
+  }
+  .footerText {
+    font-size: 5rem;
+    color: #ffffff;
+    padding-bottom: 10rem;
+  }
+  .footerLink {
+    color: #ffffff;
   }
 }
 </style>
