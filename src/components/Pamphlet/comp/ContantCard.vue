@@ -128,7 +128,10 @@ a {
   letter-spacing: 0.1rem;
   text-decoration: none;
 }
-
+.compNumber,
+.compEmail {
+  margin-left: 1.25rem;
+}
 .phoneIcon,
 .mailIcon {
   width: 0.88rem;
