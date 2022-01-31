@@ -1,9 +1,13 @@
 <template>
   <div class="container container-padding">
-    <h3 class="heading">ВІДГУКИ&nbsp;ПАРТНЕРІВ</h3>
+    <h3 class="heading" data-aos="fade-up">ВІДГУКИ&nbsp;ПАРТНЕРІВ</h3>
     <div class="reviewsWrapper">
       <div v-for="card in propObj" :key="card.id" class="cardItem">
-        <ReviewCard :comp-name="card.compName" :comp-text="card.compText" />
+        <ReviewCard
+          :comp-name="card.compName"
+          :comp-text="card.compText"
+          data-aos="fade-up"
+        />
       </div>
     </div>
   </div>
@@ -47,13 +51,14 @@ export default {
   font-size: 1vw;
   display: flex;
   flex-direction: column;
+  margin-top: 14rem;
 }
 
 .reviewsWrapper {
   margin-top: 4em;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 27.4em;
+  // margin-bottom: 27.4em;
 }
 @media screen and (max-width: 768px) {
   .reviewsWrapper {

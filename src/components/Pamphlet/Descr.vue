@@ -1,10 +1,12 @@
 <template>
   <div class="container container-padding">
     <div class="textWrapper">
-      <h2 class="textBottom">ЯК УСЕ<br />ВІДБУВАТИМЕТЬСЯ</h2>
+      <h2 class="textBottom" data-aos="fade-up" data-aos-offset="50">
+        ЯК УСЕ<br />ВІДБУВАТИМЕТЬСЯ
+      </h2>
     </div>
     <div class="infoItemsWrapper">
-      <div class="infoTextWrapper">
+      <div class="infoTextWrapper" data-aos="fade-up" data-aos-offset="100">
         <div class="textGrad">
           <span>ПЕРШИЙ ДЕНЬ</span>
         </div>
@@ -18,7 +20,7 @@
           >
         </div>
       </div>
-      <div class="infoTextWrapper">
+      <div class="infoTextWrapper" data-aos="fade-up" data-aos-offset="100">
         <div class="textGrad">
           <span>ДРУГИЙ ДЕНЬ</span>
         </div>
@@ -31,7 +33,7 @@
           >
         </div>
       </div>
-      <div class="infoTextWrapper">
+      <div class="infoTextWrapper" data-aos="fade-up" data-aos-offset="100">
         <div class="textGrad">
           <span>ОНЛАЙН-ФОРМАТ</span>
         </div>
@@ -60,8 +62,7 @@ export default {
 .container {
   font-family: 'BebasNeueCyrillic';
   font-size: 1vw;
-  padding-top: 22.36rem;
-  margin-bottom: 22.36rem;
+  margin-top: 14rem;
 }
 
 .textWrapper {

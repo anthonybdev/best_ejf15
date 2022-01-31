@@ -35,6 +35,7 @@ export default {
   font-size: 1vw;
   width: 23.5em;
   height: 18em;
+  margin-top: 0 !important;
   background: linear-gradient(112.08deg, rgba(0, 6, 27, 0) 0%, #1f0029 100%);
   border-radius: 15px;
 }

@@ -1,10 +1,10 @@
 <template>
   <div class="container container-padding">
-    <div class="textWrapper">
+    <div class="textWrapper" data-aos="fade-up" data-aos-offset="50">
       <h2 class="textTop">МОЖЛИВОСТІ ДЛЯ ПАРТНЕРІВ</h2>
     </div>
     <div class="iconsWrapper">
-      <div class="iconItem">
+      <div class="iconItem" data-aos="fade-up" data-aos-offset="120">
         <img
           class="iconImg img1"
           src="@/assets/icons/voiceOverIcon.svg"
@@ -14,7 +14,7 @@
           >Детальніше розказати студентам про компанію та можливості в ній</span
         >
       </div>
-      <div class="iconItem">
+      <div class="iconItem" data-aos="fade-up" data-aos-offset="120">
         <img
           class="iconImg img2"
           src="@/assets/icons/trendingIcon.svg"
@@ -25,7 +25,7 @@
           планування кар'єрного шляху</span
         >
       </div>
-      <div class="iconItem">
+      <div class="iconItem" data-aos="fade-up" data-aos-offset="120">
         <img
           class="iconImg img3"
           src="@/assets/icons/peopleIcon.svg"
@@ -51,7 +51,7 @@ export default {
   font-family: 'BebasNeueCyrillic';
   display: flex;
   flex-direction: column;
-  margin-top: 8.33rem;
+  margin-top: 14rem;
 }
 .textTop {
   font-size: 3.33rem;

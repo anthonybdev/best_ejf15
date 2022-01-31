@@ -11,11 +11,31 @@
 </template>
 
 <script>
+import AOS from 'aos';
 // @ is an alias to /src
 import { mapState } from 'vuex';
 export default {
   name: 'Top',
-  computed: mapState(['showPreloader'])
+  computed: mapState(['showPreloader']),
+  mounted() {
+    let scrollRef = 0;
+    const aosListener = () => {
+      if (window.innerWidth > 768) {
+        scrollRef <= 10 ? scrollRef++ : AOS.refresh();
+        scrollRef++;
+        if (scrollRef > 100) {
+          window.removeEventListener('scroll', aosListener);
+        }
+      } else {
+        scrollRef <= 300 ? scrollRef++ : AOS.refresh();
+        scrollRef++;
+        if (scrollRef > 500) {
+          window.removeEventListener('scroll', aosListener);
+        }
+      }
+    };
+    window.addEventListener('scroll', aosListener);
+  }
 };
 </script>
 

@@ -1,10 +1,10 @@
 <template>
   <div class="container container-padding">
-    <div class="textWrapper">
+    <div class="textWrapper" data-aos="fade-up">
       <h2 class="textTop">ІНЖЕНЕРНИЙ&nbsp;ЯРМАРОК</h2>
       <h2 class="textBottom">КАР&#8217;ЄРИ</h2>
     </div>
-    <div class="infoTextWrapper">
+    <div class="infoTextWrapper" data-aos="fade-up">
       <div class="textGrad">
         <span>ПРО ПРОЄКТ</span>
       </div>
@@ -32,14 +32,13 @@ export default {
   font-family: 'BebasNeueCyrillic';
   font-size: 1vw;
   display: flex;
-  padding-top: 14em;
+  padding-top: 14rem;
 }
 
 .textWrapper {
   display: flex;
   flex-direction: column;
   margin-right: 10.06em;
-  padding-bottom: 25em;
 }
 .textTop {
   font-size: 5em;

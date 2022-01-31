@@ -125,6 +125,7 @@ export default {
   font-size: 1vw;
   width: 23.5em;
   height: 14.86em;
+  margin-top: 0 !important;
   background: linear-gradient(112.08deg, rgba(0, 6, 27, 0) 0%, #1f0029 100%);
   border-radius: 1.041em;
   position: relative;
@@ -295,7 +296,7 @@ export default {
   .container {
     width: 100%;
     height: auto;
-    margin-top: 12.187rem;
+    margin-top: 12.187rem !important;
     border-radius: 15px;
   }
   .cardWrapper {

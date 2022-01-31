@@ -141,13 +141,13 @@ a {
 .faceImg > img {
   width: 13.54rem;
   height: auto;
+  border-radius: 15px 15px 0px 0px;
 }
 .faceImg {
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
   top: -75%;
-  border-radius: 15px 15px 0px 0px;
 }
 .botIconsWrapper {
   display: flex;

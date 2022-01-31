@@ -1,10 +1,10 @@
 <template>
   <div class="container container-padding">
-    <div class="textWrapper">
+    <div class="textWrapper" data-aos="fade-up" data-aos-offset="1">
       <h2 class="textTop">ІНВЕСТУЙ У МАЙБУТНЄ</h2>
     </div>
     <div class="iconsWrapper">
-      <div class="iconItem">
+      <div class="iconItem" data-aos="fade-up" data-aos-offset="1">
         <img
           class="iconImg"
           src="@/assets/icons/CalendarIcon.svg"
@@ -12,7 +12,7 @@
         />
         <span class="IconText">20.04.2022 — 21.04.2022</span>
       </div>
-      <div class="iconItem">
+      <div class="iconItem" data-aos="fade-up" data-aos-offset="1">
         <img
           class="iconImg"
           src="@/assets/icons/locationIcon.svg"

@@ -1,7 +1,7 @@
 <template>
   <div class="container container-padding">
-    <h3 class="heading">ПРОПОЗИЦІЯ</h3>
-    <div class="mainOfferWrapper">
+    <h3 class="heading" data-aos="fade-up">ПРОПОЗИЦІЯ</h3>
+    <div class="mainOfferWrapper" data-aos="fade-up">
       <OfferCard
         :offer-name="mainObj.offerName"
         :offer-price="mainObj.offerPrice"
@@ -151,6 +151,7 @@ export default {
   font-size: 1vw;
   display: flex;
   flex-direction: column;
+  margin-top: 14rem;
 }
 .instructionText {
   font-size: 0.83rem;

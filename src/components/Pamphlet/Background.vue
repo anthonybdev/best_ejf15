@@ -114,7 +114,7 @@ export default {
   .container-padding {
     font-size: 1vw !important;
     padding: 0 3.125em;
-    margin-top: 150px;
+    margin-top: 150px !important;
   }
   .heading {
     font-size: 7.5rem;

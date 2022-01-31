@@ -1,9 +1,9 @@
 <template>
   <div class="container container-padding containerMob">
-    <h3 class="heading">КОНТАКТИ</h3>
+    <h3 class="heading" data-aos="fade-up">КОНТАКТИ</h3>
     <div class="contactsWrapper">
       <div v-for="item in obj" :key="item.key">
-        <ContantCard :obj="item" />
+        <ContantCard :obj="item" data-aos="fade-up" data-aos-offset="-50" />
       </div>
     </div>
     <div class="footer">
@@ -70,7 +70,7 @@ export default {
   font-family: 'BebasNeueCyrillic';
   font-size: 1vw;
   display: flex;
-  margin-top: 20rem;
+  margin-top: 14rem;
   flex-direction: column;
 }
 .contactsWrapper {

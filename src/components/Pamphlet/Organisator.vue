@@ -1,16 +1,17 @@
 <template>
   <div class="container container-padding">
-    <h3 class="heading">ОРГАНІЗАТОР&nbsp;ПРОЄКТУ</h3>
+    <h3 class="heading" data-aos="fade-up">ОРГАНІЗАТОР&nbsp;ПРОЄКТУ</h3>
     <div class="infoWrapper">
       <a
         rel="noreferrer noopener"
         target="_blank"
         href="https://best-lviv.org.ua/"
         class="imgLink"
+        data-aos="fade-up"
       >
         <img class="infoImg" src="@/assets/icons/bestIcon.svg" alt="bestIcon" />
       </a>
-      <span class="infoText"
+      <span class="infoText" data-aos="fade-up"
         ><a
           class="infoTextBold"
           rel="noreferrer noopener"
@@ -24,15 +25,15 @@
       >
     </div>
     <div class="iconsWrapper">
-      <div class="iconItem">
+      <div class="iconItem" data-aos="fade-up">
         <span class="iconNum">90</span>
         <span class="IconText">Осередків</span>
       </div>
-      <div class="iconItem">
+      <div class="iconItem" data-aos="fade-up">
         <span class="iconNum">32</span>
         <span class="IconText">Країни</span>
       </div>
-      <div class="iconItem">
+      <div class="iconItem" data-aos="fade-up">
         <!-- <span class="iconPlus">+</span> -->
         <span class="iconNum">33</span>
         <span class="IconText">Роки досвіду</span>
@@ -52,7 +53,7 @@ export default {
   font-family: 'BebasNeueCyrillic';
   font-size: 1vw;
   display: flex;
-  margin-top: 20rem;
+  margin-top: 14rem;
   flex-direction: column;
 }
 .infoWrapper {
